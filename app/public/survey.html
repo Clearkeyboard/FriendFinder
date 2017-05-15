@@ -56,7 +56,7 @@
 
 
 		<h3><strong>Question 3</strong></h3>
-		<h4>Chaos does not bother you</h4>
+		<h4>Chaos does not bother you.</h4>
 	 	<select data-placeholder="" class="chosen-select" id="q3">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -80,7 +80,7 @@
 
 
 		<h3><strong>Question 5</strong></h3>
-		<h4>Generally you accept people are people and rarely upset you.</h4>
+		<h4>Warp 1 is faster than Light Speed.</h4>
 	 	<select data-placeholder="" class="chosen-select" id="q5">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -92,7 +92,7 @@
 
 
 		<h3><strong>Question 6</strong></h3>
-		<h4>You don't care to relate to other people’s feelings.</h4>
+		<h4>Feelings are hard.</h4>
 	 	<select data-placeholder="" class="chosen-select" id="q6">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -115,7 +115,7 @@
       	</select>
 
 		<h3><strong>Question 8</strong></h3>
-		<h4>You live more in dreams than reality.</h4>
+		<h4>I prefer escapism to reality.</h4>
 	 	<select data-placeholder="" class="chosen-select" id="q8">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -126,7 +126,7 @@
       	</select>
 
 		<h3><strong>Question 9</strong></h3>
-		<h4>You care about the well being of others and whole heartedly listen when someone is upset.</h4>
+		<h4>All dogs = pupper.</h4>
 	 	<select data-placeholder="" class="chosen-select" id="q9">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -137,7 +137,7 @@
       	</select>
 
 		<h3><strong>Question 10</strong></h3>
-		<h4>You would rather stay home watching TV then go out and socialize with others.</h4>
+		<h4>Generational Starships are not viable for deep space exploration.</h4>
 	 	<select data-placeholder="" class="chosen-select" id="q10">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -175,7 +175,7 @@
 	      </div>
 	      <div class="modal-body">
 	        <h2 id="matchName"></h2>
-	        
+	        <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -226,10 +226,13 @@
 	    	// Grab the URL of the website
 	    	var currentURL = window.location.origin;
 	    	// AJAX post the data to the friends API. 
-	    	$.post(currentURL + "/api/new", userData, function(data){
+	    	$.post(currentURL + "/api/friends", userData, function(data){
 	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
 	    		$("#matchName").text(data.name);
 	    		$('#matchImg').attr("src", data.photo);
+				$('#matchImg').attr("width", '250px');
+				$('#matchImg').attr("height", '200px');
+				console.log(data.name);
 		    	// Show the modal with the best match 
 		    	$("#resultsModal").modal('toggle');
 	    	});
